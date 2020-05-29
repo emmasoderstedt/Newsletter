@@ -87,8 +87,11 @@ router.put('/:userId', function(req, res, next) {
 
 });
 
-router.post('/authorize', function(res, req) {
+
+//verifiera användare 
+router.post('/authorize', function(req, res) {
   fs.readFile('users.json', (err, data) => {
+
     if(err)
     {
       throw err;
@@ -97,9 +100,9 @@ router.post('/authorize', function(res, req) {
     var users = JSON.parse(data);
     var authorized = false;
     
-    for(var i = 0; i<users; i++)
+    for(var i = 0; i<users.length; i++)
     {
-      if (users[i].userName === req.body.userName && users[i].password == req.body.password)
+      if (users[i].userName == req.body.userName && users[i].password == req.body.password)
       {
         authorized = true;
       }
