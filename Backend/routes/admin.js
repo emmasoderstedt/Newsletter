@@ -20,7 +20,7 @@ router.post('/adminpage', function (req, res) {
 
     console.log("du kom hit");
 
-    var adminUserName = "admin";
+    var adminUserName = "test";
     var adminPassword = "1234";
 
     if (req.body.userName == adminUserName && req.body.password == adminPassword) 
