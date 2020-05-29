@@ -2,17 +2,18 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
+//List of users, behövs ej?
+// router.get('/', function(req, res, next) {
 
-  fs.readFile('users.json', (err,data) => {
-    if(err) throw err;
-    var users = JSON.parse(data);
-    res.send(users);
-  })
+//   fs.readFile('users.json', (err,data) => {
+//     if(err) throw err;
+//     var users = JSON.parse(data);
+//     res.send(users);
+//   })
 
-});
+// });
 
+//Post new user
 router.post('/', function(req, res, next) {
 
   fs.readFile('users.json', (err, data) => {
@@ -20,13 +21,21 @@ router.post('/', function(req, res, next) {
     {
       throw err;
     }
+
+    if(req.body.userName === undefined || req.body.password === undefined || req.body.userEmail === undefined || req.body.subscriptionActive === undefined)
+    {
+      res.status(400);
+      res.send("Saknas uppgifter");
+      return;
+    } 
           
     var users = JSON.parse(data);
+    
 
     newuser =    
     {
-      "id": req.body.id,
       "userName": req.body.userName,
+      "password": req.body.password,
       "userEmail": req.body.userEmail,
       "subscriptionActive": req.body.subscriptionActive
     }
@@ -41,17 +50,16 @@ router.post('/', function(req, res, next) {
       {
         throw err;
       }
-
-  });
-
-  res.send("Ny användare sparad!");
+      
+    });
+    
+    res.send("Ny användare sparad!");
   })
 
 });
 
+//Change subscriptionstatus
 router.put('/:userId', function(req, res, next) {
-
-  console.log("put med id: ", req.params.userId);
 
   fs.readFile('users.json', (err, data) => {
     if(err)
@@ -78,6 +86,29 @@ router.put('/:userId', function(req, res, next) {
   })
 
 });
+
+router.post('/authorize', function(res, req) {
+  fs.readFile('users.json', (err, data) => {
+    if(err)
+    {
+      throw err;
+    }
+
+    var users = JSON.parse(data);
+    var authorized = false;
+    
+    for(var i = 0; i<users; i++)
+    {
+      if (users[i].userName === req.body.userName && users[i].password == req.body.password)
+      {
+        authorized = true;
+      }
+    }
+
+    res.send(authorized);
+
+  })
+})
 
 
 module.exports = router;

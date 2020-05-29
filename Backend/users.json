@@ -1,42 +1,5 @@
 [
   {
-    "id": 1,
-    "userName": "Steffe",
-    "userEmail": "pelles@gmail.com"
-  },
-  {
-    "id": 2,
-    "userName": "Linkan",
-    "userEmail": "linsan@gmail.com"
-  },
-  {
-    "id": 3,
-    "userName": "Patrik",
-    "userEmail": "patte@gmail.com"
-  },
-  {
-    "id": 3,
-    "userName": "Patrik",
-    "userEmail": "patte@gmail.com"
-  },
-  {
-    "id": 4,
-    "userName": "Lotta",
-    "userEmail": "lotte@gmail.com"
-  },
-  {
-    "userName": "Lotta",
-    "userEmail": "lotte@gmail.com"
-  },
-  {
-    "userName": "Emma",
-    "userEmail": "lotte@gmail.com"
-  },
-  {
-    "userName": "Stefan",
-    "userEmail": "steffe@gmail.com"
-  },
-  {
     "userName": "Stefan",
     "userEmail": "steffe@gmail.com",
     "subscriptionActive": false
@@ -47,9 +10,34 @@
     "subscriptionActive": true
   },
   {
-    "id": "77",
     "userName": "Leo",
     "userEmail": "lelle@gmail.com",
-    "subscriptionActive": false
+    "subscriptionActive": true
+  },
+  {
+    "userName": "olle",
+    "password": "pellekrabat"
+  },
+  {
+    "userName": "olle",
+    "password": "pellekrabat"
+  },
+  {
+    "userName": "olleöåPOOOOOLLLLLEEEEEE!",
+    "password": "pellekrabat"
+  },
+  {
+    "userName": "Florida!",
+    "password": "pellekrabat"
+  },
+  {
+    "userName": "Florida!",
+    "password": "pellekrabat"
+  },
+  {
+    "userName": "steffe!",
+    "password": "pellekrabat",
+    "userEmail": "klssamlfk",
+    "subscriptionActive": true
   }
 ]
