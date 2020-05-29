@@ -42,13 +42,16 @@ router.post('/adminpage', function (req, res) {
             page += "<br/>";
             page += "<br/>Lista med subscribade mailadresser: ";
 
-                var subscribers = users.filter(a => a.subscriptionActive === true);
-                console.log("subscribers",subscribers);
-                page += "<br/>";
+            var subscribers = users.filter(a => a.subscriptionActive === true);
+            console.log("subscribers",subscribers);
+            page += "<br/>";
+            var listOfSubscribers = [];
 
-                subscribers.forEach(u => {
-                    page +=  u.userEmail + ", ";
-                });
+            subscribers.forEach(u => {
+                listOfSubscribers.push(u.userEmail);
+            });
+            page += listOfSubscribers.join(", ").toString();
+            
         
 
             res.send(page);
