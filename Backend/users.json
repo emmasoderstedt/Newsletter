@@ -23,5 +23,33 @@
     "id": 4,
     "userName": "Lotta",
     "userEmail": "lotte@gmail.com"
+  },
+  {
+    "userName": "Lotta",
+    "userEmail": "lotte@gmail.com"
+  },
+  {
+    "userName": "Emma",
+    "userEmail": "lotte@gmail.com"
+  },
+  {
+    "userName": "Stefan",
+    "userEmail": "steffe@gmail.com"
+  },
+  {
+    "userName": "Stefan",
+    "userEmail": "steffe@gmail.com",
+    "subscriptionActive": false
+  },
+  {
+    "userName": "Emma",
+    "userEmail": "steffe@gmail.com",
+    "subscriptionActive": true
+  },
+  {
+    "id": "77",
+    "userName": "Leo",
+    "userEmail": "lelle@gmail.com",
+    "subscriptionActive": false
   }
 ]
