@@ -1,17 +1,8 @@
 var express = require('express');
 var fs = require('fs');
+var cryptoJS = require('crypto-js');
 var router = express.Router();
-
-//List of users, behövs ej?
-// router.get('/', function(req, res, next) {
-
-//   fs.readFile('users.json', (err,data) => {
-//     if(err) throw err;
-//     var users = JSON.parse(data);
-//     res.send(users);
-//   })
-
-// });
+var saltKey = "pappamysjakrnaefsnafesifjalosf";
 
 //Post new user
 router.post('/', function(req, res, next) {
@@ -30,12 +21,14 @@ router.post('/', function(req, res, next) {
     } 
           
     var users = JSON.parse(data);
+
+    var cryptedPassword = cryptoJS.AES.encrypt(req.body.password, saltKey).toString();
     
 
     newuser =    
     {
       "userName": req.body.userName,
-      "password": req.body.password,
+      "password": cryptedPassword,
       "userEmail": req.body.userEmail,
       "subscriptionActive": req.body.subscriptionActive
     }
@@ -88,7 +81,7 @@ router.put('/:userId', function(req, res, next) {
 });
 
 
-//verifiera användare 
+//authorisera användare för login
 router.post('/authorize', function(req, res) {
   fs.readFile('users.json', (err, data) => {
 
@@ -98,13 +91,20 @@ router.post('/authorize', function(req, res) {
     }
 
     var users = JSON.parse(data);
+
+
     var authorized = false;
     
     for(var i = 0; i<users.length; i++)
     {
-      if (users[i].userName == req.body.userName && users[i].password == req.body.password)
+      if (users[i].userName == req.body.userName)
       {
-        authorized = true;
+        var decryptedPassord = cryptoJS.AES.decrypt(users[i].password, saltKey).toString(cryptoJS.enc.Utf8);
+        console.log("detta är avkrypterat ", decryptedPassord);
+        if(decryptedPassord == req.body.password)
+        {
+          authorized = true;
+        }
       }
     }
 

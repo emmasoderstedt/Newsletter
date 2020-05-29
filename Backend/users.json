@@ -1,43 +1,8 @@
 [
   {
-    "userName": "Stefan",
-    "userEmail": "steffe@gmail.com",
-    "subscriptionActive": false
-  },
-  {
-    "userName": "Emma",
-    "userEmail": "steffe@gmail.com",
-    "subscriptionActive": true
-  },
-  {
-    "userName": "Leo",
-    "userEmail": "lelle@gmail.com",
-    "subscriptionActive": true
-  },
-  {
-    "userName": "olle",
-    "password": "pellekrabat"
-  },
-  {
-    "userName": "olle",
-    "password": "pellekrabat"
-  },
-  {
-    "userName": "olleöåPOOOOOLLLLLEEEEEE!",
-    "password": "pellekrabat"
-  },
-  {
-    "userName": "Florida!",
-    "password": "pellekrabat"
-  },
-  {
-    "userName": "Florida!",
-    "password": "pellekrabat"
-  },
-  {
-    "userName": "steffe!",
-    "password": "pellekrabat",
-    "userEmail": "klssamlfk",
+    "userName": "krypteradesteffe!",
+    "password": "U2FsdGVkX1+dA5NaUpAsMKUdfOkWLrI1XJdJSlncLYE=",
+    "userEmail": "cool",
     "subscriptionActive": true
   }
 ]
