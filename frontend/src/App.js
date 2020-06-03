@@ -13,7 +13,26 @@ class App extends React.Component {
 
   verifyLogin = (userName, password) => {
       console.log("Kontrollerar användaruppgifter");
-      //fetch
+
+      var data = {password: password, userName: userName};
+      
+      fetch("http://localhost:3000/users/authorize", {
+        "method": "POST",
+        "headers": {
+          "Content-type":'application/json',
+        },
+        "body": JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        this.setState({loggedIn: data})
+        })
+    
+    .catch(err => {
+        console.log(err);
+    });
+      
   }
 
   render() {

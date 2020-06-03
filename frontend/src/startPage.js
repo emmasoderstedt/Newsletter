@@ -5,6 +5,7 @@ class StartPage extends React.Component {
     {
         super(props);
         this.state = {usernameInput: '', passwordInput: ''};
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);

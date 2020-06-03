@@ -3,6 +3,9 @@ var fs = require('fs');
 var cryptoJS = require('crypto-js');
 var router = express.Router();
 var saltKey = "pappamysjakrnaefsnafesifjalosf";
+var cors = require('cors');
+
+router.use(cors())
 
 //Post new user
 router.post('/', function(req, res, next) {
@@ -91,8 +94,6 @@ router.post('/authorize', function(req, res) {
     }
 
     var users = JSON.parse(data);
-
-
     var authorized = false;
     
     for(var i = 0; i<users.length; i++)
