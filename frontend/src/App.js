@@ -35,9 +35,34 @@ class App extends React.Component {
       
   }
 
+  registerUser = (userName, password, email, subsciptionStatus) => {
+    console.log("Registrerar användare ");
+
+    var data = {
+        userName: userName, 
+        password: password,
+        userEmail: email, 
+        subscriptionActive: subsciptionStatus
+      };
+    console.log("Användaruppgifter som skickas in",data);
+    
+    fetch("http://localhost:3000/users", {
+      "method": "POST",
+      "headers": {
+        "Content-type":'application/json',
+      },
+      "body": JSON.stringify(data),
+    })
+    .catch(err => {
+        console.log(err);
+    });
+      
+  }
+
+
   render() {
     return (
-      this.state.loggedIn ? <LoggedIn/> : <StartPage showText= {this.state.showText} Login= {this.verifyLogin}/>
+      this.state.loggedIn ? <LoggedIn/> : <StartPage showText= {this.state.showText} Login= {this.verifyLogin} RegisterUser={this.registerUser}/>
     );
   }
 } 
