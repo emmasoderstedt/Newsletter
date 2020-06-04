@@ -1,21 +1,13 @@
 import React from 'react';
+import Login from './login';
 
 class StartPage extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = {usernameInput: '', passwordInput: '',
-                    registerUserName: '', registerPassword: '', registerEmail: '', subscribed: false};
-
-        this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+        this.state = {registerUserName: '', registerPassword: '', registerEmail: '', subscribed: false};
         this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);   
-    }
-
-    handleLoginSubmit(event) {
-        this.setState({usernameInput: this.state.usernameInput, passwordInput: this.state.passwordInput});
-        this.props.Login(this.state.usernameInput, this.state.passwordInput);
-        event.preventDefault();
     }
     
     handleRegisterSubmit(event){
@@ -34,22 +26,42 @@ class StartPage extends React.Component {
         });
     }
 
+    verifyLogin = (userName, password) => {
+        console.log("Kontrollerar användaruppgifter");
+  
+        var data = {password: password, userName: userName};
+        
+        fetch("http://localhost:3000/users/authorize", {
+          "method": "POST",
+          "headers": {
+            "Content-type":'application/json',
+          },
+          "body": JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log("verifierad: ", data)
+          localStorage.setItem("UserName", userName);
+          localStorage.setItem("UserId", data.userId);
+          localStorage.setItem("SubsciptionStatus", data.subscription);
+          console.log(localStorage);
+          if (data) {
+              this.props.LoggedIn();
+          }
+          })
+      
+      .catch(err => {
+          console.log(err);
+      });
+        
+    }
+
     render() {
         const showText = this.props.showText;
         return(
             <div className = "startPage">
                 <h1>{showText}</h1>
-                <form onSubmit={this.handleLoginSubmit} >
-                    <label>
-                        Användarnamn:
-                        <input name="usernameInput" type="text" value={this.state.usernameInput} onChange={this.handleChange} />
-                    </label>
-                    <label>
-                        Lösenord:
-                        <input name="passwordInput" type="password" value={this.state.passwordInput} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Logga in"/>
-                </form>
+                <Login VerifyLogin= {this.verifyLogin}/>
 
                 <h1>Registrera ny användare</h1>
                 <form onSubmit={this.handleRegisterSubmit} >

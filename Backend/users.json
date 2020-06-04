@@ -21,6 +21,18 @@
     "userName": "p",
     "password": "U2FsdGVkX18sxB/6kj0eovmNVEyO4Lbq69du10wEGcg=",
     "userEmail": "p@p",
+    "subscriptionActive": true
+  },
+  {
+    "userName": "pelle",
+    "password": "U2FsdGVkX1+zUWVtfVzKQZ5EB8c143Gby2PWfJRQ3nQ=",
+    "userEmail": "p@p",
+    "subscriptionActive": false
+  },
+  {
+    "userName": "josse",
+    "password": "U2FsdGVkX19MM5u4DSHJqom+Rjb1/RY5Zg0iVBjmiFA=",
+    "userEmail": "1@1",
     "subscriptionActive": false
   }
 ]
