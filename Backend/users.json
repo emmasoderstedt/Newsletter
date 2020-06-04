@@ -9,12 +9,18 @@
     "userName": "emma!",
     "password": "U2FsdGVkX1+UqiKAn4CKqQtUM6vCUwgDP4FHPSHdh34=",
     "userEmail": "cool.com",
-    "subscriptionActive": true
+    "subscriptionActive": false
   },
   {
     "userName": "pelle",
     "password": "U2FsdGVkX18+Q24GVkdvU3w/K0Dwq7iTYOaqcKELxEc=",
     "userEmail": "pelle@pelle.se",
     "subscriptionActive": true
+  },
+  {
+    "userName": "p",
+    "password": "U2FsdGVkX18sxB/6kj0eovmNVEyO4Lbq69du10wEGcg=",
+    "userEmail": "p@p",
+    "subscriptionActive": false
   }
 ]

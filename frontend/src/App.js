@@ -26,7 +26,12 @@ class App extends React.Component {
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        this.setState({loggedIn: data})
+        this.setState({loggedIn: data.authorized})
+        localStorage.setItem("UserName", userName);
+        localStorage.setItem("UserId", data.userId);
+        localStorage.setItem("SubsciptionStatus", data.subscription);
+        console.log(localStorage);
+        
         })
     
     .catch(err => {
@@ -55,14 +60,32 @@ class App extends React.Component {
     })
     .catch(err => {
         console.log(err);
-    });
-      
+    }); 
+
   }
 
+  changeSubscriptionStatus = (subsciptionStatus, userId) => {
+    console.log("Ändrar subsciptionstatus. Statusen är: ", subsciptionStatus);
+    console.log("userId är: ", userId); 
+
+    var data= {"subscriptionActive": subsciptionStatus}
+
+    fetch("http://localhost:3000/users/" + userId, {
+      "method": "PUT",
+      "headers": {
+        "Content-type":'application/json',
+      },
+      "body": JSON.stringify(data),
+      })
+      .catch(err => {
+          console.log(err);
+      });
+
+  }     
 
   render() {
     return (
-      this.state.loggedIn ? <LoggedIn/> : <StartPage showText= {this.state.showText} Login= {this.verifyLogin} RegisterUser={this.registerUser}/>
+      this.state.loggedIn ? <LoggedIn ChangeSubscriptionStatus = {this.changeSubscriptionStatus}/> : <StartPage showText= {this.state.showText} Login= {this.verifyLogin} RegisterUser={this.registerUser}/>
     );
   }
 } 

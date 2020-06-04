@@ -95,6 +95,8 @@ router.post('/authorize', function(req, res) {
 
     var users = JSON.parse(data);
     var authorized = false;
+    var userId;
+    var subscription;
     
     for(var i = 0; i<users.length; i++)
     {
@@ -104,12 +106,16 @@ router.post('/authorize', function(req, res) {
         console.log("detta är avkrypterat ", decryptedPassord);
         if(decryptedPassord == req.body.password)
         {
+          subscription = users[i].subscriptionActive;
+          userId =i;
           authorized = true;
         }
       }
+    
     }
 
-    res.send(authorized);
+    res.send({authorized, userId, subscription});
+    
 
   })
 })
