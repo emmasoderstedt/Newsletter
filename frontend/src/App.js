@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-//import './loggedInPage';
 import StartPage from './startPage';
 import LoggedInPage from './loggedInPage';
 
@@ -10,8 +9,9 @@ class App extends React.Component {
     this.state = {loggedIn: false, showText: "Startsida"};
   }
 
+  //registera användare
   registerUser = (userName, password, email, subsciptionStatus) => {
-    console.log("Registrerar användare ");
+    console.log("Registrerar användare");
 
     var data = {
         userName: userName, 
@@ -19,7 +19,6 @@ class App extends React.Component {
         userEmail: email, 
         subscriptionActive: subsciptionStatus
       };
-    console.log("Användaruppgifter som skickas in",data);
     
     fetch("http://localhost:3000/users", {
       "method": "POST",
@@ -34,9 +33,9 @@ class App extends React.Component {
 
   }
 
+  //ändra subscriptionStatus
   changeSubscriptionStatus = (subsciptionStatus, userId) => {
     console.log("Ändrar subsciptionstatus. Statusen är: ", subsciptionStatus);
-    console.log("userId är: ", userId); 
 
     var data= {"subscriptionActive": subsciptionStatus}
 
@@ -52,10 +51,13 @@ class App extends React.Component {
       });
 
   } 
+
+  //för att ändra loggedIn till true och logga in
   loggedIn = () => {
     this.setState({loggedIn: true});
     
   }
+  //för att ändra loggedIn till false och logga ut
   logout =() => {
     console.log("loggar ut");
     this.setState({loggedIn: false});
@@ -64,6 +66,7 @@ class App extends React.Component {
 
   render() {
     return (
+      //Om inloggad kom till loginsidan. Om inte kom till startsidan
       this.state.loggedIn ? <LoggedInPage ChangeSubscriptionStatus = {this.changeSubscriptionStatus} Logout={this.logout}></LoggedInPage> : <StartPage showText= {this.state.showText} RegisterUser={this.registerUser} LoggedIn = {this.loggedIn}></StartPage>
     );
   }

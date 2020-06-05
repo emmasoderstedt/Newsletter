@@ -5,6 +5,7 @@ var router = express.Router();
 
 router.get('/', function (req, res) {
 
+    //skriver ut inloggningsformulär
     var html = '';
     html += "<body>";
     html += "<form action='/admin/adminpage' method='post' name='form1'>";
@@ -18,11 +19,11 @@ router.get('/', function (req, res) {
 
 router.post('/adminpage', function (req, res) {
 
-    console.log("du kom hit");
-
+    //hårdkodade inloggningsuppgifter för admin
     var adminUserName = "test";
     var adminPassword = "1234";
 
+    //kontrollerar att inloggninsuppgifterna stämmer, skriver då ut adminsidan
     if (req.body.userName == adminUserName && req.body.password == adminPassword) 
     {
         console.log("lösenordet och användarnamnet stämmer");
@@ -33,13 +34,14 @@ router.post('/adminpage', function (req, res) {
             var users = JSON.parse(data);
             console.log(users);
 
+            //skriver ut alla användarnamn
             page += "Alla användare: "
-
             users.forEach(u => {
                 page += "<br/>" + u.userName;
             });
-
             page += "<br/>";
+
+            //skriver ut lista med subscribade mailadresser
             page += "<br/>Lista med subscribade mailadresser: ";
 
             var subscribers = users.filter(a => a.subscriptionActive === true);
@@ -51,8 +53,6 @@ router.post('/adminpage', function (req, res) {
                 listOfSubscribers.push(u.userEmail);
             });
             page += listOfSubscribers.join(", ").toString();
-            
-        
 
             res.send(page);
         })

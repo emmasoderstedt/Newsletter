@@ -26,6 +26,7 @@ class StartPage extends React.Component {
         });
     }
 
+    //verifiera inloggning
     verifyLogin = (userName, password) => {
         console.log("Kontrollerar användaruppgifter");
   
@@ -37,30 +38,33 @@ class StartPage extends React.Component {
             "Content-type":'application/json',
           },
           "body": JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(data => {
-          console.log("verifierad: ", data)
-          localStorage.setItem("UserName", userName);
-          localStorage.setItem("UserId", data.userId);
-          localStorage.setItem("SubsciptionStatus", data.subscription);
-          console.log(localStorage);
-          if (data) {
-              this.props.LoggedIn();
-          }
-          })
-      
-      .catch(err => {
-          console.log(err);
-      });
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("verifierad: ", data)
+            // om användaren verifieras spara information i localstorage och kör LoggedIn för att logga in
+            if(data.authorized)
+            {
+                localStorage.setItem("UserName", userName);
+                localStorage.setItem("UserId", data.userId);
+                localStorage.setItem("SubsciptionStatus", data.subscription);
+                console.log(localStorage);
+                this.props.LoggedIn();
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
         
     }
 
     render() {
         const showText = this.props.showText;
         return(
+            //skriv ut startsida
             <div className = "startPage">
                 <h1>{showText}</h1>
+
                 <Login VerifyLogin= {this.verifyLogin}/>
 
                 <h1>Registrera ny användare</h1>

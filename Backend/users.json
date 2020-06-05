@@ -1,38 +1,20 @@
 [
   {
-    "userName": "krypteradesteffe!",
-    "password": "U2FsdGVkX1+dA5NaUpAsMKUdfOkWLrI1XJdJSlncLYE=",
-    "userEmail": "cool",
-    "subscriptionActive": true
-  },
-  {
     "userName": "emma!",
     "password": "U2FsdGVkX1+UqiKAn4CKqQtUM6vCUwgDP4FHPSHdh34=",
     "userEmail": "cool.com",
     "subscriptionActive": false
   },
   {
-    "userName": "pelle",
-    "password": "U2FsdGVkX18+Q24GVkdvU3w/K0Dwq7iTYOaqcKELxEc=",
-    "userEmail": "pelle@pelle.se",
+    "userName": "anton",
+    "password": "U2FsdGVkX1+gTk3Z1udKZMh2K1+80Hzvj3bDdFMwFrM=",
+    "userEmail": "a@a",
     "subscriptionActive": true
   },
   {
-    "userName": "p",
-    "password": "U2FsdGVkX18sxB/6kj0eovmNVEyO4Lbq69du10wEGcg=",
-    "userEmail": "p@p",
+    "userName": "lol",
+    "password": "U2FsdGVkX18rjWaera61vCmZWiXombXk4UrPUcjada4=",
+    "userEmail": "lol@gmail.com",
     "subscriptionActive": true
-  },
-  {
-    "userName": "pelle",
-    "password": "U2FsdGVkX1+zUWVtfVzKQZ5EB8c143Gby2PWfJRQ3nQ=",
-    "userEmail": "p@p",
-    "subscriptionActive": false
-  },
-  {
-    "userName": "josse",
-    "password": "U2FsdGVkX19MM5u4DSHJqom+Rjb1/RY5Zg0iVBjmiFA=",
-    "userEmail": "1@1",
-    "subscriptionActive": false
   }
 ]

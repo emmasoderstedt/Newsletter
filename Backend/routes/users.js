@@ -25,8 +25,8 @@ router.post('/', function(req, res, next) {
           
     var users = JSON.parse(data);
 
+    //krypterar lösenord
     var cryptedPassword = cryptoJS.AES.encrypt(req.body.password, saltKey).toString();
-    
 
     newuser =    
     {
@@ -36,8 +36,8 @@ router.post('/', function(req, res, next) {
       "subscriptionActive": req.body.subscriptionActive
     }
 
+    //lägger till ny användare och skriver över med den nya lista
     users.push(newuser);
-
     var saveUsers= JSON.stringify(users, null, 2);
 
     fs.writeFile('users.json', saveUsers, (err, data) => 
@@ -65,10 +65,9 @@ router.put('/:userId', function(req, res, next) {
           
     var users = JSON.parse(data);
 
+    //användarens subsciptionstatus sätts till den medskickade statusen 
     users[req.params.userId].subscriptionActive = req.body.subscriptionActive;
-
     var saveUsers= JSON.stringify(users, null, 2);
-
     fs.writeFile('users.json', saveUsers, (err, data) => 
     {
       if(err) 
@@ -100,10 +99,11 @@ router.post('/authorize', function(req, res) {
     
     for(var i = 0; i<users.length; i++)
     {
+      //checkar matchande användarnamn om de har rätt lösenord
       if (users[i].userName == req.body.userName)
       {
+        //avkrypterar lösenord och jämför
         var decryptedPassord = cryptoJS.AES.decrypt(users[i].password, saltKey).toString(cryptoJS.enc.Utf8);
-        console.log("detta är avkrypterat ", decryptedPassord);
         if(decryptedPassord == req.body.password)
         {
           subscription = users[i].subscriptionActive;

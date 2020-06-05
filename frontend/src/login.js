@@ -5,7 +5,6 @@ class Login extends React.Component {
     {
         super(props);
         this.state = {usernameInput: '', passwordInput: ''};
-
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);   
     }
@@ -27,6 +26,7 @@ class Login extends React.Component {
 
     render() {
         return(
+            //skriver ut loginformulär
             <div className = "login">
                 <form onSubmit={this.handleLoginSubmit} >
                     <label>

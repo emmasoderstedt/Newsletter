@@ -7,7 +7,6 @@ class LoggedInPage extends React.Component {
         this.state = {isToggleOn: true};
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
 
     handleClick() {
@@ -24,6 +23,7 @@ class LoggedInPage extends React.Component {
 
     render() {
         return(
+            //skriver ut logged in sidan
             <div> 
                 <h1>Hej {localStorage.getItem("UserName")}</h1>
                 
