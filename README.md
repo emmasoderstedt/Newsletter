@@ -1,13 +1,12 @@
-Inlämningsuppgift - Vill du ha mitt nyhetsbrev?
+Inlämningsuppgift i kursen Webutveckling - Vill du ha mitt nyhetsbrev?
 
-Nu skall vi bygga en enkel webbapplikation som samlar information från besökare och sedan gör dem tillgängliga för webbsidans administratör.
-Till denna uppgift så ska du använda dig utav node.js som backend.
-Applikationen skall bestå av en frontend webbsida där användaren kan skapa ett konto samt välja om de vill prenumerera på ditt nyhetsbrev, samt en backend där en administratör ska kunna logga in och se samtliga registrerade användare samt en lista på vilka användare som önskar ett nyhetsbrev.
+Uppgiften var att bygga en enkel webbapplikation som samlar information från besökare och sedan gör dem tillgängliga för webbsidans administratör.
+Till denna uppgift var kravet att använda mig utav node.js som backend.
+Applikationen skulle bestå av en frontend webbsida där användaren kan skapa ett konto samt välja om de vill prenumerera på ditt nyhetsbrev, samt en backend där en administratör ska kunna logga in och se samtliga registrerade användare samt en lista på vilka användare som önskar ett nyhetsbrev.
 
-För frontend får ni använda valfria javascript ramverk och bibliotek. Jag rekomenderar att ni kollar på React om ni vill ha stöd genom handledning under uppgiften. 
-I andra ramverk är min kunskap begränsad så väljer du tex Angular så är kravet på självstudier högre. Reflektera över val utav vanilla.js vs ramverk och bibliotek i din reflektion.
+För frontend fick vi använda valfritt javascript ramverk och bibliotek men det jag valde var React med anledning att vi fick chansen att få bättre tips och handledning från kursansvarige i det fallet.
 
-I uppgiften kommer ni att få hantera läsning och presentation utav data på lite olika sätt då vi kombinerar en Headless front end med ett Monolit backend. 
+I uppgiften fick vi lära oss att få hantera läsning och presentation utav data på lite olika sätt då vi kombinerade en Headless frontend med ett Monolit backend. 
 
 
 ## G krav:
@@ -34,3 +33,6 @@ Lämna en skriftlig reflektion utav uppgiften (Max 4 A4-sidor)
 Lämna in uppgiften via github med ett repo med två mappar "frontend" samt "backend".
 Länken samt reflektionen (om ni siktar på VG kraven) lämnas in via Ping Pong senast fredag 5 juni kl 2300. 
 Reflektion får lämnas in som en del utav repot i readme.md! Notera då detta när ni lämnar in.
+
+
+Mitt resultat på inlämningen: VG
